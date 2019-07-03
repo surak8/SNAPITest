@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B30E564-D816-4E91-83B9-4B1D336C9D5B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NSSNAPITest</RootNamespace>
+    <AssemblyName>SNAPITest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;USE_COLT3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>.\bin\debug\SNAPITest.xml</DocumentationFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <NoWarn>1591</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>.\bin\release\SNAPITest.xml</DocumentationFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <NoWarn>1591</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup Label="None">
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup Label="AssemblyInfo">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup Label="IDK">
+    <Compile Include="Source\LogWrapper.cs" />
+    <Compile Include="Source\ScannerData.cs" />
+    <Compile Include="Source\UI\SNAPITestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UI\SNAPITestForm.Designer.cs">
+      <DependentUpon>SNAPITestForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup Label="References">
+    <Reference Include="Interop.CoreScanner">
+      <HintPath>..\Colt3\Lib\Interop.CoreScanner.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\UI\SNAPITestForm.resx">
+      <DependentUpon>SNAPITestForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Colt3\Colt3\Colt3.csproj">
+      <Project>{e3c9b988-17a7-4fe9-a7b0-1b490204c6eb}</Project>
+      <Name>Colt3</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
