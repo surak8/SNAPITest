@@ -1,3 +1,9 @@
 # .gitignore
 data
 *.csproj.user
+bin
+obj
+debug
+release
+.vs
+blah.txt
